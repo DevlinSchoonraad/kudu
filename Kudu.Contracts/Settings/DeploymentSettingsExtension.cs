@@ -151,7 +151,7 @@ namespace Kudu.Contracts.Settings
             }
 
             // in case of no repository, we will default to webroot (preferring inplace).
-            if (settings.IsNullRepository())
+            if (settings.NoRepository())
             {
                 return Constants.WebRoot;
             }
@@ -170,7 +170,7 @@ namespace Kudu.Contracts.Settings
             return null;
         }
 
-        public static bool IsNullRepository(this IDeploymentSettingsManager settings)
+        public static bool NoRepository(this IDeploymentSettingsManager settings)
         {
             return settings.GetValue(SettingsKeys.NoRepository) == "1";
         }
